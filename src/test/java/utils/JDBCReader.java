@@ -25,7 +25,7 @@ public class JDBCReader {
             ResultSet resultSet = sqlStatement.executeQuery(QUERY_SELECT_ALL);
 
             while (resultSet.next()) {
-                Number number = new Number(resultSet.getInt("num1"), resultSet.getInt("num2"),
+                Number number = new Number(resultSet.getInt("id"), resultSet.getInt("num1"), resultSet.getInt("num2"),
                         resultSet.getInt("num3"), resultSet.getInt("num4"),
                         resultSet.getInt("num5"), resultSet.getInt("num6"),
                         resultSet.getInt("num7"), resultSet.getInt("num8"),
@@ -50,7 +50,7 @@ public class JDBCReader {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Number number = new Number(resultSet.getInt("num1"), resultSet.getInt("num2"),
+                Number number = new Number(resultSet.getInt("id"), resultSet.getInt("num1"), resultSet.getInt("num2"),
                         resultSet.getInt("num3"), resultSet.getInt("num4"),
                         resultSet.getInt("num5"), resultSet.getInt("num6"),
                         resultSet.getInt("num7"), resultSet.getInt("num8"),
@@ -70,7 +70,7 @@ public class JDBCReader {
 
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement(QUER_INSERT);
-            preparedStatement.setInt(1, 3);
+            preparedStatement.setInt(1, 4);
             preparedStatement.setInt(2, 25);
             preparedStatement.setInt(3, 35);
             preparedStatement.setInt(4, 45);
@@ -109,7 +109,7 @@ public class JDBCReader {
 
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-            preparedStatement.setInt(1, 3);
+            preparedStatement.setInt(1, 4);
             preparedStatement.executeUpdate();
 
         } catch (SQLException exception) {
@@ -118,13 +118,13 @@ public class JDBCReader {
         return numbers;
     }
 
-//    public static void main(String[] args) {
-//        getNumbersFromDB();
+    public static void main(String[] args) {
+        getNumbersFromDB();
 //        selectNumberByIdFromDB();
 //        insertNumbersFromDB();
 //        updateNumbersFromDB();
 //        deleteNumbersFromDB();
-//    }
+    }
 }
 
 

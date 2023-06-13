@@ -2,7 +2,9 @@ package models;
 
 import com.opencsv.bean.CsvBindByName;
 
+
 public class Number {
+    private int id;
     @CsvBindByName(column = "num1")
     private int num1;
     @CsvBindByName(column = "num2")
@@ -24,6 +26,10 @@ public class Number {
     @CsvBindByName(column = "num10")
     private int num10;
 
+    public Number() {
+    }
+
+
 
     public Number(int num1, int num2, int num3, int num4, int num5, int num6,int num7, int num8,int num9, int num10) {
         this.num1 = num1;
@@ -38,7 +44,27 @@ public class Number {
         this.num10 = num10;
     }
 
+    public Number(int id, int num1, int num2, int num3, int num4, int num5, int num6,int num7, int num8,int num9, int num10) {
+        this.id = id;
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+        this.num4 = num4;
+        this.num5 = num5;
+        this.num6 = num6;
+        this.num7 = num7;
+        this.num8 = num8;
+        this.num9 = num9;
+        this.num10 = num10;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getNum1() {
         return num1;
